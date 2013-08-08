@@ -60,6 +60,15 @@ for each one of these objects, assign keys and values if it doesn't exist in ori
    */
   _.once = function(func) {
     // Your code here.
+    var ran = false;
+    var results;
+    return function() {
+      if (ran === false) {
+        results = func.apply(this, arguments);
+        ran = true;
+      }
+      return results;
+    }
   };
   
   /**
