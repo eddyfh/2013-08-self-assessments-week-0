@@ -76,6 +76,13 @@ for each one of these objects, assign keys and values if it doesn't exist in ori
    */
   _.contains = function(list, value){
     // Your code here
+    var match = false;
+    for (var i = 0; i < list.length; i++) {
+      if (list[i] === value) {
+        match = true;
+      }
+    }
+    return match;
   };
 
 }).call(this);
