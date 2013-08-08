@@ -35,7 +35,24 @@ var _ = {};
    */
   _.defaults = function(obj) {
     // Your code here.
+    var target = arguments[0];
+    for (var argindex = 1; argindex < arguments.length; argindex++) {  // loops thru the # of arguments
+      for (var key in arguments[argindex]) {
+        if (target[key] === undefined) {
+          target[key] = arguments[argindex][key];
+        }
+      }
+    }
+    return target;
   };
+/*
+
+pass in 6 objects, first is original, 2-6 are objects containing key value pairs
+for each one of these objects, assign keys and values if it doesn't exist in original
+
+*/
+
+
 
   /**
    * Return a function that can be called at most one time. Subsequent calls
