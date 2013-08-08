@@ -7,8 +7,18 @@ var _ = {};
    */
   _.each = function(collection, iterator) {
     // Your code here.
+    if (Array.isArray(collection)) {  // if it's an array do this
+      for (var i = 0; i < collection.length; i++) {
+        iterator(collection[i], i, collection);
+      }
+    }
+    else {                            // if object
+      for (var key in collection) {
+        iterator(collection[key], key, collection);
+      }
+    }
   };
-
+  
   /**
    * Extend a given object with all the properties of the passed-in object(s).
    * Doesn't overwrite keys that already exist in `obj`.
